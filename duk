@@ -1,0 +1,18 @@
+inputid = input("enter id: ")
+inputpwd = input("enter password: ")
+def logincheck(inputid, inputpwd):
+    f = open('erd.txt', 'r')
+    lines = f.readlines()
+    flag = False
+    for line in lines:
+        temp = line.split('\n')[0]
+        id, pwd = temp.split(',')
+        if id == inputid and pwd == inputpwd:
+            flag = True
+            break
+    return flag
+flag = logincheck(inputid, inputpwd)
+if flag:
+    print("ok")
+else:
+    print("no")
