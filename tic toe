@@ -1,0 +1,86 @@
+import random
+input_id = input("enter id: ")
+input_pwd = input("enter password: ")
+
+def login_check(input_id, input_pwd):
+    f = open('login.txt', 'r')
+    lines = f.readlines()
+    flag = False
+    for line in lines:
+        temp = line.split('\n')[0]
+        id, pwd = temp.split(',')
+        if id == input_id and pwd == input_pwd:
+            flag = True
+            break
+    return flag
+
+
+flag = login_check(input_id, input_pwd)
+if flag:
+    print("ok\ntic tac toe")
+
+    def mmap():
+        gmap = []
+        for i in range(9):
+            gmap.append("-")
+        return gmap
+
+
+    def pmap(nkmap):
+        for i in range(0, 9, 3):
+            print(nkmap[i] + ' ' + nkmap[i + 1] + ' ' + nkmap[i + 2])
+
+
+    def cw(map):
+        check = False
+        if map[0] == map[1] == map[2] and map[0] != '-':
+            check = True
+        elif map[3] == map[4] == map[5] and map[3] != '-':
+            check = True
+        elif map[6] == map[7] == map[8] and map[6] != '-':
+            check = True
+        elif map[1] == map[4] == map[7] and map[1] != '-':
+            check = True
+        elif map[0] == map[3] == map[6] and map[0] != '-':
+            check = True
+        elif map[2] == map[5] == map[8] and map[2] != '-':
+            check = True
+        elif map[0] == map[4] == map[8] and map[0] != '-':
+            check = True
+        elif map[2] == map[4] == map[6] and map[2] != '-':
+            check = True
+        return check
+
+
+    a = 'o'
+    b = 'x'
+    turn = 0
+    gmap = mmap()
+
+    for i in range(9):
+        if turn == 0:
+            while True:
+                num = int(input("Enter the position : "))
+                if gmap[num] == "-":
+                    gmap[num] = a
+                    pmap(gmap)
+                    print("\t")
+                    break
+            turn = 1
+        elif turn == 1:
+            while True:
+                num = random.randrange(0, 8)
+                if gmap[num] == "-":
+                    gmap[num] = b
+                    pmap(gmap)
+                    break
+            turn = 0
+
+        gwc = cw(gmap)
+
+        if gwc:
+            print('win')
+            break
+
+else:
+    print("no")
