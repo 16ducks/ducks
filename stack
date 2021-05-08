@@ -1,0 +1,27 @@
+def push(stack, data, maxl):
+    if len(stack) < maxl:
+        stack.append(data)
+        print(stack)
+    else:
+        print("overflow")
+    return stack
+
+def pop(stack):
+    if len(stack) > 0:
+        del stack[len(stack)-1]
+        print(stack)
+    else:
+        print("underflow")
+    return stack
+
+maxl = 3
+stack = []
+
+while True:
+    l = input("enter push or pop: ")
+
+    if l == "push":
+        data = int(input("enter number: "))
+        stack = push(stack, data, maxl)
+    if l == "pop":
+        pop(stack)
