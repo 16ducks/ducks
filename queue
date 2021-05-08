@@ -1,0 +1,27 @@
+def enqueue(queue, data, maxl):
+    if len(queue) < maxl:
+        queue.append(data)
+        print(queue)
+    else:
+        print("overflow")
+    return queue
+
+def dequeue(queue):
+    if len(queue) > 0:
+        del queue[0]
+        print(queue)
+    else:
+        print("underflow")
+    return queue
+
+maxl = 3
+queue = []
+
+while True:
+    l = input("enter enqueue or dequeue: ")
+
+    if l == "enqueue":
+        data = int(input("enter number: "))
+        queue = enqueue(queue, data, maxl)
+    if l == "dequeue":
+        dequeue(queue)
