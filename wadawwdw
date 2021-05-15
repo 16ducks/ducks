@@ -1,0 +1,35 @@
+a = int(input())
+for i in range(a):
+    m = int(input())
+    n = int(input())
+    for i in range(m, n):
+        if m % 2 == 0 and n % 2 == 0:
+            if m < n:
+                m /= 2
+                print(n * m)
+            elif n < m:
+                n /= 2
+                print(n * m)
+        elif m % 3 == 0 and n % 3 == 0:
+            if m < n:
+                m /= 3
+                print(n * m)
+            elif n < m:
+                n /= 3
+                print(n * m)
+        elif m % 5 == 0 and n % 5 == 0:
+            if m < n:
+                m /= 5
+                print(n * m)
+            elif n < m:
+                n /= 5
+                print(n * m)
+        elif m % 7 == 0 and n % 7 == 0:
+            if m < n:
+                m /= 7
+                print(n * m)
+            elif n < m:
+                n /= 7
+                print(n * m)
+        else:
+            print(n * m)
