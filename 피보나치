@@ -1,0 +1,6 @@
+p = [0, 1]
+n = int(input())
+if n <= 45:
+    for i in range(n):
+        p.append(p[i] + p[i+1])
+    print(p[n])
