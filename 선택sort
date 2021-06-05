@@ -1,0 +1,28 @@
+import random
+
+a = []
+f = 4
+
+
+def list():
+    for t in range(f):
+        r = random.randrange(10)
+        a.append(r)
+    return a
+
+
+list = list()
+print(list)
+
+
+def efw():
+    for j in range(len(a)):
+        b = j
+        for i in range(j, len(a)):
+            if a[b] > a[i]:
+                b = i
+        a[j], a[b] = a[b], a[j]
+    print(a)
+
+
+efw()
