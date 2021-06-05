@@ -1,20 +1,28 @@
 import random
+
+f = 4
 a = []
 
+
 def list():
-    for t in range(10):
-        r = random.randrange(100)
+    for t in range(f):
+        r = random.randrange(10)
         a.append(r)
     return a
-g = list()
-print(g)
-def sort():
-    for i in range(10):
-        for j in range(9):
-            if a[j] > a[j+1]:
-                a[j], a[j+1] = a[j+1], a[j]
-                print(a)
-    return a
-c = sort()
-print(c)
 
+
+list = list()
+print(list)
+
+
+def q():
+    for l in range(f):
+        for i in range(f - 1):
+            if a[i] > a[i + 1]:
+                a[i], a[i + 1] = a[i + 1], a[i]
+                print(a)
+            if a[i] == a[i + 1]:
+                break
+
+
+q()
